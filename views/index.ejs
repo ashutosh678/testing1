@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickers</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #191d28;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.nav{
+  display: flex;
+  flex-flow: row;
+  margin: 23px;
+  margin-right: 23px;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 38px;
+  /* margin-bottom: 40px; */
+  color: #6bcbca;
+  text-align: center;
+}
+
+span{
+  font-size: 18px;
+  color: white;
+}
+
+select {
+  margin: 8px;
+  color: white;
+  background-color: #2f3240;
+  border: 0.1px solid #2f3240;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+button{
+  color: white;
+  background-color: #6bcbca;
+  border:  0.1px solid  #6bcbca;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+h2{
+  color: #66696b;
+  margin-left: 25px;
+  margin-top: -5px;
+  font-size: 18px;
+  margin-bottom: 33px;
+}
+
+h2 span{
+  color: #6bcbca;
+}
+
+table {
+  width: 100%;
+  padding: auto;
+  margin-bottom: 60px;
+  border-collapse: collapse;
+}
+
+
+thead tr {
+  /* background-color: #F4F4F4; */
+  color: #808086;
+}
+
+th {
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #808086;
+  border-bottom: 2px solid #ddd;
+}
+
+
+tbody tr {
+  background-color: #2f3240;
+  border: 2px solid #2f3240;
+  border-radius: 18px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+td {
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+}
+  
+</style>
+
+</head>
+<body>
+    <div class="nav">
+      <h1>HODLINFO<span>.com</span></h1>
+      <div class="options">
+        <select>
+          <option value="">INR</option>
+        </select>
+        <select>
+          <option value="">BTC</option>
+        </select>
+      </div>
+      <button>Connect Telegram</button>
+    </div>
+    <div class="below-nav">
+      <h2>Powered By <span>Finstreet</span></h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Last Price</th>
+          <th>Buy/ Sell Price</th>
+          <!-- <th>Sell Price</th> -->
+          <th>Volume</th>
+          <th>Base_Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tickers.forEach(function(ticker) { %>
+          <tr>
+            <td><%= ticker.name %></td>
+            <td><%= ticker.last %></td>
+            <td>₹<%= ticker.buy %> / ₹<%= ticker.sell %></td>
+            <!-- <td><%= ticker.sell %></td> -->
+            <td><%= ticker.volume %></td>
+            <td><%= ticker.base_unit %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+</body>
+</html>
